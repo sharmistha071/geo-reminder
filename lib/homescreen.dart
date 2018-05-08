@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
+import 'main.dart';
+import 'models.dart';
+import 'place.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => new _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('HomeScreen'),
-        backgroundColor: Colors.purple,
+        title: new Text('Todo List'),
+        backgroundColor: Colors.redAccent[400],
       ),
       // create sidebar menu
 			drawer: new Drawer(
@@ -24,43 +29,69 @@ class _HomeScreenState extends State<HomeScreen> {
 										backgroundColor: Colors.white,
 										child: new Text('X'),
 									),
-									decoration: new BoxDecoration(color: Colors.purple),
+									decoration: new BoxDecoration(color: Colors.redAccent[400]),
 							),
 							new Divider(color: Colors.white,),
-							// new ListTile(
-							// 	title: new Text('Close', style: new TextStyle(color: Colors.white)),
-							// 	trailing: new Icon(Icons.close, color: Colors.white,),
-							// 	onTap: ()=> Navigator.of(context).pop(),
-							// ),
-
 						],
 					)
 			),
 
       body: new Container(
-        padding: const EdgeInsets.all(30.0), // padding for child element
-        //child: new Text('Welcome to Home.!'), // child of container
-        child: new Column(
-          children: <Widget>[
-            new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new Text('Deliver features faster', textAlign: TextAlign.center),
-                ),
-                new Expanded(
-                  child: new Text('Craft beautiful UIs', textAlign: TextAlign.center),
-                ),
-                new Expanded(
-                  child: new FittedBox(
-                    fit: BoxFit.contain, // otherwise the logo will be tiny
-                    child: const FlutterLogo(),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        child: new ListView.builder(itemBuilder: _itemBuilder),
       ),
+      floatingActionButton: new FloatingActionButton(
+        tooltip: 'Add', // used by assistive technologies
+        backgroundColor: Colors.redAccent[400],
+        child: new Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+            context,
+            new MaterialPageRoute(builder: (context) => new CustomSearchScaffold()),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _itemBuilder(BuildContext context, int index){
+    Todo todo = getTodo(index);
+    return new TodoItemWidget(todo: todo);
+  }
+
+  Todo getTodo(int index){
+    return new Todo(false, 'todo $index, Dhaka, Bangladesh');
+  }
+}
+
+class TodoItemWidget extends StatefulWidget{
+  TodoItemWidget({Key key, this.todo }) : super(key:key);
+
+  final Todo todo;
+
+  @override
+  _TodoItemWidgetState createState() => new _TodoItemWidgetState();
+}
+
+class _TodoItemWidgetState extends State<TodoItemWidget>{
+  bool _isChecked = false;
+  void onChanged(bool value){
+    setState((){
+      _isChecked = true;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context){
+    return new ListTile(
+      leading: new Checkbox(
+        value: _isChecked,
+        onChanged: (bool newValue) {
+          setState(() {
+            _isChecked = newValue;
+          });
+        },
+      ),
+      title: new Text(widget.todo.name),
     );
   }
 }
