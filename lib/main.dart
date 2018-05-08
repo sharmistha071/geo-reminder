@@ -1,12 +1,17 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
 import 'homescreen.dart';
+import 'place.dart';
+import 'addTodo.dart';
 
 void main() {
   runApp(new MaterialApp(
     home: new SplashScreen(),
     routes: <String, WidgetBuilder>{
-      '/HomeScreen': (BuildContext context) => new HomeScreen()
+      '/HomeScreen': (BuildContext context) => new HomeScreen(),
+      '/CustomSearchScaffold': (BuildContext context) => new CustomSearchScaffold(),
+      '/addTodo': (BuildContext context) => new AddTodo()
     },
   ));
 }
@@ -35,17 +40,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var assetsImage = new AssetImage('assets/map.png');
+    var image = new Image(image: assetsImage, width:100.0);
     return new Scaffold(
-      backgroundColor: Colors.purple,
+      backgroundColor: Colors.redAccent[400],
 
-      // body: new Center(
-      //   crossAxisAlignment: CrossAxisAlignment.center,
-      //   children: [
-      //     new Expanded(
-      //       child: new Image.asset('images/pic1.jpg'),
-      //     ),
-      //   ],
-      // ),
+      body: new Center(
+        child: image,
+      ),
     );
   }
 }
