@@ -12,8 +12,29 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: new AppBar(
         title: new Text('HomeScreen'),
       ),
-      body: new Center(
-        child: new Text('Welcome to Home.!'),
+      body: new Container(
+        padding: const EdgeInsets.all(30.0), // padding for child element
+        //child: new Text('Welcome to Home.!'), // child of container
+        child: new Column(
+          children: <Widget>[
+            new Row(
+              children: <Widget>[
+                new Expanded(
+                  child: new Text('Deliver features faster', textAlign: TextAlign.center),
+                ),
+                new Expanded(
+                  child: new Text('Craft beautiful UIs', textAlign: TextAlign.center),
+                ),
+                new Expanded(
+                  child: new FittedBox(
+                    fit: BoxFit.contain, // otherwise the logo will be tiny
+                    child: const FlutterLogo(),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

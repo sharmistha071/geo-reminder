@@ -37,14 +37,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: Colors.red,
-      body: new Center(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          new Expanded(
-            child: new Image.asset('images/pic1.jpg'),
-          ),
-        ],
-      ),
+      // body: new Center(
+      //   crossAxisAlignment: CrossAxisAlignment.center,
+      //   children: [
+      //     new Expanded(
+      //       child: new Image.asset('images/pic1.jpg'),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
