@@ -11,7 +11,7 @@ void main() {
     routes: <String, WidgetBuilder>{
       '/HomeScreen': (BuildContext context) => new HomeScreen(),
       '/CustomSearchScaffold': (BuildContext context) => new CustomSearchScaffold(),
-      '/addTodo': (BuildContext context) => new AddTodo()
+      '/addTodo': (BuildContext context) => new AddTodo(),
     },
   ));
 }

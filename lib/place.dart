@@ -19,7 +19,6 @@ Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
     PlacesDetailsResponse detail = await _places.getDetailsByPlaceId(p.placeId);
     final lat = detail.result.geometry.location.lat;
     final lng = detail.result.geometry.location.lng;
-
     scaffold.showSnackBar(
         new SnackBar(content: new Text("${p.description} - $lat/$lng"))
     );
@@ -49,9 +48,10 @@ class _CustomSearchScaffoldState extends GooglePlacesAutocompleteState {
     );
     final body = new GooglePlacesAutocompleteResult(onTap: (p) {
       displayPrediction(p, searchScaffoldKey.currentState);
+      String loc =  p.description;
       Navigator.push(
         context,
-        new MaterialPageRoute(builder: (context) => new AddTodo()),
+        new MaterialPageRoute(builder: (context) => new AddTodo(loc)),    //TODO: send selected location data to addTodo
       );
     });
     return new Scaffold(key: searchScaffoldKey, appBar: appBar, body: body);

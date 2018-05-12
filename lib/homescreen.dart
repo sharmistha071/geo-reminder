@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   @override
+  /*.................main widget........................*/
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -35,7 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
 						],
 					)
 			),
-
       body: new Container(
         child: new ListView.builder(itemBuilder: _itemBuilder),
       ),
@@ -52,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+/*.................end main widget........................*/
 
   Widget _itemBuilder(BuildContext context, int index){
     Todo todo = getTodo(index);

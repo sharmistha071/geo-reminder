@@ -5,16 +5,24 @@ import 'main.dart';
 import 'place.dart';
 
 class AddTodo extends StatefulWidget {
-	final String location;
+	String location;
+
+	AddTodo(String s){
+		this.location = s;
+	}
 	@override
-	_AddTodoState createState() => new _AddTodoState();
+	_AddTodoState createState() => new _AddTodoState(location);
 }
 
 class _AddTodoState extends State<AddTodo> {
-  final locationController = new TextEditingController(text: 'Dhaka New Market, Bangladesh');
+	//String location;
+	// TODO Access location data here
+	_AddTodoState(){
+		//super();
+	}
+  final locationController = new TextEditingController(text: location);
   final titleController = new TextEditingController();
   final descriptionController = new TextEditingController();
-
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
