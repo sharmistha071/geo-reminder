@@ -25,6 +25,11 @@ Future<Null> displayPrediction(Prediction p, ScaffoldState scaffold) async {
   }
 }
 
+//void getLocation(){
+//  print('return');
+//}
+
+
 // custom scaffold that handle search
 // basically your widget need to extends [GooglePlacesAutocompleteWidget]
 // and your state [GooglePlacesAutocompleteState]
@@ -49,9 +54,12 @@ class _CustomSearchScaffoldState extends GooglePlacesAutocompleteState {
     final body = new GooglePlacesAutocompleteResult(onTap: (p) {
       displayPrediction(p, searchScaffoldKey.currentState);
       String loc =  p.description;
+
       Navigator.push(
         context,
-        new MaterialPageRoute(builder: (context) => new AddTodo(loc)),    //TODO: send selected location data to addTodo
+        new MaterialPageRoute(builder: (context) => new AddTodo(loc)),
+        //TODO: send selected location data to addTodo
+
       );
     });
     return new Scaffold(key: searchScaffoldKey, appBar: appBar, body: body);
