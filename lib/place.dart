@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places_autocomplete/flutter_google_places_autocomplete.dart';
+import 'package:map_view/map_view.dart';
+
 
 import 'main.dart';
 import 'addTodo.dart';

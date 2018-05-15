@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "600403879987",
+    "firebase_url": "https://geo-remainder-1524648633654.firebaseio.com",
+    "project_id": "geo-remainder-1524648633654",
+    "storage_bucket": "geo-remainder-1524648633654.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600403879987:android:aed11748d8f44563",
+        "android_client_info": {
+          "package_name": "com.example.fluttertodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600403879987-iu2q3vp4l61stbn7ll16p2vfhqkhtvqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfhvb4P23rGUaWG6CdTPn80Eg7izIAbmQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
