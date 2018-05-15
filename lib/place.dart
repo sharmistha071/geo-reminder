@@ -8,7 +8,7 @@ import 'package:map_view/map_view.dart';
 import 'main.dart';
 import 'addTodo.dart';
 
-const kGoogleApiKey = "AIzaSyDEtGrV-U7k4_LY52k-u9ScyQeEIvR5f7k";
+const kGoogleApiKey = "enter api key here";
 
 GoogleMapsPlaces _places = new GoogleMapsPlaces(kGoogleApiKey);
 
